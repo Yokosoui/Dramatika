@@ -548,6 +548,7 @@ document.querySelectorAll('.language-dropdown li').forEach(item => {
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+    // Attach click event listeners to navigation links
     const navLinks = document.querySelectorAll('.nav-link');
     const contentContainer = document.getElementById('content');
     const contactBtn = document.getElementById('contactBtn');
@@ -571,7 +572,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Example: Update the content container with the target content
         contentContainer.innerHTML = targetContent.innerHTML;
 
-        // Example: Scroll to the target content
+        // Example: Scroll to the target content without updating the URL
         targetContent.scrollIntoView({ behavior: 'smooth' });
     }
 
@@ -583,48 +584,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const contactContent = document.getElementById('contact');
         contentContainer.innerHTML = contactContent.innerHTML;
 
-        // Example: Scroll to the contact section
+        // Example: Scroll to the contact section without updating the URL
         contactContent.scrollIntoView({ behavior: 'smooth' });
     }
-
-document.addEventListener('DOMContentLoaded', function () {
-    const contentContainer = document.getElementById('content');
-
-document.addEventListener('DOMContentLoaded', function () {
-    const contentContainer = document.getElementById('content');
-
-    // Function to handle "Get started" button click
-    function handleGetStartedButtonClick(event) {
-        // Prevent the default behavior of the anchor element
-        event.preventDefault();
-
-        // Example: Load content related to the plans section
-        const plansContent = document.getElementById('plans');
-
-        if (plansContent) {
-            contentContainer.innerHTML = plansContent.innerHTML;
-
-            // Manually update the URL without adding the hash
-            window.history.pushState({}, document.title, window.location.pathname);
-
-            // Use the offsetTop of the plansContent for more accurate scrolling
-            const offsetTop = plansContent.offsetTop;
-            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-        } else {
-            console.error('Element with ID "plans" not found.');
-        }
-    }
-
-    // Attach click event listener to the "Get started" button
-    const getStartedBtn = document.getElementById('getStartedBtn');
-    if (getStartedBtn) {
-        getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
-    } else {
-        console.error('Element with ID "getStartedBtn" not found.');
-    }
-});
-
-
 
     // Attach click event listeners to navigation links
     navLinks.forEach(function (link) {
@@ -637,8 +599,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Attach click event listener to the "Read more" button
     readMoreBtn.addEventListener('click', handleReadMoreButtonClick);
 
-// Attach click event listener to the "Get started" button
-document.getElementById('getStartedBtn').addEventListener('click', handleGetStartedButtonClick);
+    // Attach click event listener to the "Get started" button
+    getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
 
     // Initial content update based on the current URL
     const currentPage = window.location.pathname.split('/').pop().split('.').shift();
