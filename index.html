@@ -603,18 +603,20 @@ document.querySelectorAll('.language-dropdown li').forEach(item => {
         event.stopPropagation();
     }
 
-    // Function to handle "Get started" button click
-    function handleGetStartedButtonClick(event) {
-        event.preventDefault();
+   // Function to handle "Get started" button click
+function handleGetStartedButtonClick(event) {
+    // Prevent the default behavior of the anchor element
+    event.preventDefault();
 
-        // Example: Scroll to the plans section
-        const plansSection = document.getElementById('plans');
+    // Example: Scroll to the plans section
+    const plansSection = document.getElementById('plans');
 
-        if (plansSection) {
-            plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-            console.error('Element with ID "plans" not found.');
-        }
+    if (plansSection) {
+        plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+        console.error('Element with ID "plans" not found.');
+    }
+}
 
         // Stop the propagation of the click event to prevent default behavior
         event.stopPropagation();
@@ -635,8 +637,8 @@ document.querySelectorAll('.language-dropdown li').forEach(item => {
     // Attach click event listener to the "Read more" button
     readMoreBtn.addEventListener('click', handleReadMoreButtonClick);
 
-    // Attach click event listener to the "Get started" button
-    getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
+   // Attach click event listener to the "Get started" button
+getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
 
     // Initial content update based on the current URL
     const currentPage = window.location.pathname.split('/').pop().split('.').shift();
