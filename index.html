@@ -597,20 +597,24 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Function to handle "Get started" button click
-    function handleGetStartedButtonClick(event) {
-        event.preventDefault();
+   // Function to handle "Get started" button click
+function handleGetStartedButtonClick(event) {
+    event.preventDefault();
 
-        // Example: Scroll to the plans section
-        const plansSection = document.getElementById('plans');
+    // Example: Scroll to the plans section
+    const plansSection = document.getElementById('plans');
 
-        if (plansSection) {
-            contentContainer.innerHTML = plansSection.innerHTML;
-            plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-            console.error('Element with ID "plans" not found.');
-        }
+    if (plansSection) {
+        plansSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+            inline: 'nearest' // Add this line to ensure smooth scroll without showing the ID in the URL
+        });
+    } else {
+        console.error('Element with ID "plans" not found.');
     }
+}
+
 
     // Attach click event listeners to navigation links
     navLinks.forEach(function (link) {
