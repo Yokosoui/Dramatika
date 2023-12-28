@@ -640,8 +640,40 @@ document.querySelectorAll('.language-dropdown li').forEach(item => {
 </script>
 <script>
         // JavaScript to handle navigation link clicks
+    document.addEventListener('DOMContentLoaded', function () {
         const navLinks = document.querySelectorAll('.nav-link');
         const contentContainer = document.getElementById('content');
+        const contactBtn = document.getElementById('contactBtn');
+
+        // Function to handle navigation link clicks
+        function handleNavLinkClick(event) {
+            event.preventDefault();
+            
+            // Example: Load content based on the href attribute of the clicked link
+            const targetContentId = event.target.getAttribute('href').substring(1);
+            const targetContent = document.getElementById(targetContentId);
+
+            // Example: Update the content container with the target content
+            contentContainer.innerHTML = targetContent.innerHTML;
+        }
+
+        // Function to handle "Contact us" button click
+        function handleContactButtonClick(event) {
+            event.preventDefault();
+
+            // Example: Load content related to the contact section
+            const contactContent = document.getElementById('contact');
+            contentContainer.innerHTML = contactContent.innerHTML;
+        }
+
+        // Attach click event listeners to navigation links
+        navLinks.forEach(function (link) {
+            link.addEventListener('click', handleNavLinkClick);
+        });
+
+        // Attach click event listener to the "Contact us" button
+        contactBtn.addEventListener('click', handleContactButtonClick);
+    });
 
         // Define your content for each "page"
         const pages = {
