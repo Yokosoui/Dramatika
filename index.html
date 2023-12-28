@@ -587,20 +587,26 @@ document.addEventListener('DOMContentLoaded', function () {
         contactContent.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Function to handle "Read more" button click
-    function handleReadMoreButtonClick(event) {
-        event.preventDefault();
+   // Function to handle "Get started" button click
+function handleGetStartedButtonClick(event) {
+    // Prevent the default behavior of the anchor element
+    event.preventDefault();
 
-        // Example: Scroll to the services section directly
-        const servicesSection = document.getElementById('services');
+    // Example: Load content related to the plans section
+    const plansContent = document.getElementById('plans');
 
-        if (servicesSection) {
-            servicesSection.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            console.error('Element with ID "services" not found.');
-        }
+    if (plansContent) {
+        contentContainer.innerHTML = plansContent.innerHTML;
+
+        // Manually update the URL without adding the hash
+        window.history.pushState({}, document.title, window.location.pathname);
+
+        plansContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+        console.error('Element with ID "plans" not found.');
     }
-
+}
+	
 // Function to handle "Get started" button click
 function handleGetStartedButtonClick(event) {
     // Prevent the default behavior of the anchor element
@@ -634,8 +640,8 @@ function handleGetStartedButtonClick(event) {
     // Attach click event listener to the "Read more" button
     readMoreBtn.addEventListener('click', handleReadMoreButtonClick);
 
-    // Attach click event listener to the "Get started" button
-    getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
+// Attach click event listener to the "Get started" button
+document.getElementById('getStartedBtn').addEventListener('click', handleGetStartedButtonClick);
 
     // Initial content update based on the current URL
     const currentPage = window.location.pathname.split('/').pop().split('.').shift();
