@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 
 <!--
  // WEBSITE: https://themefisher.com
@@ -599,18 +599,26 @@ if (servicesSection) {
 }
 
 // Function to handle "Get started" button click
-        function handleGetStartedButtonClick(event) {
-            event.preventDefault();
+function handleGetStartedButtonClick(event) {
+    event.preventDefault();
 
-            // Example: Scroll to the plans section
-            const plansSection = document.getElementById('plans');
-            
-            if (plansSection) {
-                plansSection.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                console.error('Element with ID "plans" not found.');
-            }
-        }
+    // Example: Scroll to the plans section
+    const plansSection = document.getElementById('plans');
+
+    if (plansSection) {
+        plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+        console.error('Element with ID "plans" not found.');
+    }
+}
+
+// Attach click event listener to the "Get started" button
+getStartedBtn.addEventListener('click', function (event) {
+    handleGetStartedButtonClick(event);
+
+    // Stop the propagation of the click event to prevent default behavior
+    event.stopPropagation();
+});
 
         // Attach click event listeners to navigation links
         navLinks.forEach(function (link) {
