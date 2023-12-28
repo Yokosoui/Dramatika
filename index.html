@@ -543,7 +543,7 @@ document.querySelectorAll('.language-dropdown li').forEach(item => {
 });
 </script>
 <script>
-          document.addEventListener('DOMContentLoaded', function () {
+       document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.nav-link');
     const contentContainer = document.getElementById('content');
     const contactBtn = document.getElementById('contactBtn');
@@ -594,6 +594,7 @@ document.querySelectorAll('.language-dropdown li').forEach(item => {
         const servicesSection = document.getElementById('services');
 
         if (servicesSection) {
+            contentContainer.innerHTML = servicesSection.innerHTML;
             servicesSection.scrollIntoView({ behavior: 'smooth' });
         } else {
             console.error('Element with ID "services" not found.');
@@ -603,24 +604,20 @@ document.querySelectorAll('.language-dropdown li').forEach(item => {
         event.stopPropagation();
     }
 
-// Function to handle "Get started" button mousedown
-function handleGetStartedButtonMousedown(event) {
-    // Prevent the default behavior of the anchor element
-    event.preventDefault();
+    // Function to handle "Get started" button mousedown
+    function handleGetStartedButtonMousedown(event) {
+        // Prevent the default behavior of the anchor element
+        event.preventDefault();
 
-    // Example: Scroll to the plans section
-    const plansSection = document.getElementById('plans');
+        // Example: Scroll to the plans section
+        const plansSection = document.getElementById('plans');
 
-    if (plansSection) {
-        plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-        console.error('Element with ID "plans" not found.');
-    }
-}
-
-
-        // Stop the propagation of the click event to prevent default behavior
-        event.stopPropagation();
+        if (plansSection) {
+            contentContainer.innerHTML = plansSection.innerHTML;
+            plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            console.error('Element with ID "plans" not found.');
+        }
     }
 
     // Attach click event listeners to navigation links
@@ -638,13 +635,14 @@ function handleGetStartedButtonMousedown(event) {
     // Attach click event listener to the "Read more" button
     readMoreBtn.addEventListener('click', handleReadMoreButtonClick);
 
- // Attach mousedown event listener to the "Get started" button
-getStartedBtn.addEventListener('mousedown', handleGetStartedButtonMousedown);
+    // Attach mousedown event listener to the "Get started" button
+    getStartedBtn.addEventListener('mousedown', handleGetStartedButtonMousedown);
 
     // Initial content update based on the current URL
     const currentPage = window.location.pathname.split('/').pop().split('.').shift();
     updateContent(currentPage);
 });
+
     </script>
 </body>
 
