@@ -603,8 +603,8 @@ document.querySelectorAll('.language-dropdown li').forEach(item => {
         event.stopPropagation();
     }
 
-   // Function to handle "Get started" button click
-function handleGetStartedButtonClick(event) {
+// Function to handle "Get started" button mousedown
+function handleGetStartedButtonMousedown(event) {
     // Prevent the default behavior of the anchor element
     event.preventDefault();
 
@@ -617,6 +617,7 @@ function handleGetStartedButtonClick(event) {
         console.error('Element with ID "plans" not found.');
     }
 }
+
 
         // Stop the propagation of the click event to prevent default behavior
         event.stopPropagation();
@@ -637,8 +638,8 @@ function handleGetStartedButtonClick(event) {
     // Attach click event listener to the "Read more" button
     readMoreBtn.addEventListener('click', handleReadMoreButtonClick);
 
-   // Attach click event listener to the "Get started" button
-getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
+ // Attach mousedown event listener to the "Get started" button
+getStartedBtn.addEventListener('mousedown', handleGetStartedButtonMousedown);
 
     // Initial content update based on the current URL
     const currentPage = window.location.pathname.split('/').pop().split('.').shift();
