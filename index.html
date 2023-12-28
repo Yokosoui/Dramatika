@@ -587,65 +587,50 @@ document.addEventListener('DOMContentLoaded', function () {
         // Example: Scroll to the contact section without updating the URL
         contactContent.scrollIntoView({ behavior: 'smooth' });
     }
-// Function to handle "Get started" button click
-function handleGetStartedButtonClick(event) {
-    // Prevent the default behavior of the anchor element
-    event.preventDefault();
+	
+document.addEventListener('DOMContentLoaded', function () {
+    const contentContainer = document.getElementById('content');
 
-    // Example: Load content related to the plans section
-    const plansContent = document.getElementById('plans');
+    // Function to handle button clicks and scroll to corresponding sections
+    function handleButtonClick(event, targetId) {
+        event.preventDefault();
 
-    if (plansContent) {
-        contentContainer.innerHTML = plansContent.innerHTML;
+        const targetContent = document.getElementById(targetId);
 
-        // Manually update the URL without adding the hash
-        window.history.pushState({}, document.title, window.location.pathname);
+        if (targetContent) {
+            contentContainer.innerHTML = targetContent.innerHTML;
 
-        // Use the offsetTop of the plansContent for more accurate scrolling
-        const offsetTop = plansContent.offsetTop;
-        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-    } else {
-        console.error('Element with ID "plans" not found.');
+            // Manually update the URL without adding the hash
+            window.history.pushState({}, document.title, window.location.pathname);
+
+            // Use the offsetTop of the targetContent for more accurate scrolling
+            const offsetTop = targetContent.offsetTop;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        } else {
+            console.error(`Element with ID "${targetId}" not found.`);
+        }
     }
-}
 
-// Function to handle "Read more" button click
-function handleReadMoreButtonClick(event) {
-    // Prevent the default behavior of the anchor element
-    event.preventDefault();
-
-    // Example: Load content related to the services section
-    const servicesContent = document.getElementById('services');
-
-    if (servicesContent) {
-        contentContainer.innerHTML = servicesContent.innerHTML;
-
-        // Manually update the URL without adding the hash
-        window.history.pushState({}, document.title, window.location.pathname);
-
-        // Use the offsetTop of the servicesContent for more accurate scrolling
-        const offsetTop = servicesContent.offsetTop;
-        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    // Attach click event listener to the "Get started" button
+    const getStartedBtn = document.getElementById('getStartedBtn');
+    if (getStartedBtn) {
+        getStartedBtn.addEventListener('click', function (event) {
+            handleButtonClick(event, 'plans');
+        });
     } else {
-        console.error('Element with ID "services" not found.');
+        console.error('Element with ID "getStartedBtn" not found.');
     }
-}
 
-// Attach click event listener to the "Get started" button
-const getStartedBtn = document.getElementById('getStartedBtn');
-if (getStartedBtn) {
-    getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
-} else {
-    console.error('Element with ID "getStartedBtn" not found.');
-}
-
-// Attach click event listener to the "Read more" button
-const readMoreBtn = document.getElementById('readMoreBtn');
-if (readMoreBtn) {
-    readMoreBtn.addEventListener('click', handleReadMoreButtonClick);
-} else {
-    console.error('Element with ID "readMoreBtn" not found.');
-}
+    // Attach click event listener to the "Read more" button
+    const readMoreBtn = document.getElementById('readMoreBtn');
+    if (readMoreBtn) {
+        readMoreBtn.addEventListener('click', function (event) {
+            handleButtonClick(event, 'services');
+        });
+    } else {
+        console.error('Element with ID "readMoreBtn" not found.');
+    }
+});
 
     // Attach click event listeners to navigation links
     navLinks.forEach(function (link) {
