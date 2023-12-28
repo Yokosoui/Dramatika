@@ -590,6 +590,9 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const contentContainer = document.getElementById('content');
 
+document.addEventListener('DOMContentLoaded', function () {
+    const contentContainer = document.getElementById('content');
+
     // Function to handle "Get started" button click
     function handleGetStartedButtonClick(event) {
         // Prevent the default behavior of the anchor element
@@ -604,7 +607,9 @@ document.addEventListener('DOMContentLoaded', function () {
             // Manually update the URL without adding the hash
             window.history.pushState({}, document.title, window.location.pathname);
 
-            plansContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Use the offsetTop of the plansContent for more accurate scrolling
+            const offsetTop = plansContent.offsetTop;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
         } else {
             console.error('Element with ID "plans" not found.');
         }
@@ -618,27 +623,6 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Element with ID "getStartedBtn" not found.');
     }
 });
-
-	
-// Function to handle "Get started" button click
-function handleGetStartedButtonClick(event) {
-    // Prevent the default behavior of the anchor element
-    event.preventDefault();
-
-    // Example: Load content related to the plans section
-    const plansContent = document.getElementById('plans');
-
-    if (plansContent) {
-        contentContainer.innerHTML = plansContent.innerHTML;
-
-        // Manually update the URL without adding the hash
-        window.history.pushState({}, document.title, window.location.pathname);
-
-        plansContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-        console.error('Element with ID "plans" not found.');
-    }
-}
 
 
 
