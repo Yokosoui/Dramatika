@@ -543,7 +543,7 @@ document.querySelectorAll('.language-dropdown li').forEach(item => {
 });
 </script>
 <script>
- document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.nav-link');
     const contentContainer = document.getElementById('content');
     const contactBtn = document.getElementById('contactBtn');
@@ -598,8 +598,8 @@ document.querySelectorAll('.language-dropdown li').forEach(item => {
         }
     }
 
-    // Function to handle "Get started" button click
-    function handleGetStartedButtonClick(event) {
+    // Function to handle "Get started" button mousedown
+    function handleGetStartedButtonMousedown(event) {
         event.preventDefault();
 
         // Example: Scroll to the plans section
@@ -624,8 +624,8 @@ document.querySelectorAll('.language-dropdown li').forEach(item => {
     // Attach click event listener to the "Read more" button
     readMoreBtn.addEventListener('click', handleReadMoreButtonClick);
 
-    // Attach click event listener to the "Get started" button
-    getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
+    // Attach mousedown event listener to the "Get started" button
+    getStartedBtn.addEventListener('mousedown', handleGetStartedButtonMousedown);
 
     // Initial content update based on the current URL
     const currentPage = window.location.pathname.split('/').pop().split('.').shift();
