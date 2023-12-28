@@ -211,7 +211,10 @@ overflow-x: hidden;
 						<h4 class="mb-3 position-relative">We are the solution to your boredom</h4>
 						<p class="mb-5">We are a leading cable service provider committed to delivering top-notch entertainment and communication services to our customers. With years of experience in the industry, we take pride in our exceptional service quality and customer satisfaction.</p>
 
-						<a href="#plans" class="btn btn-main btn-round-full">Get started</a>
+						<!-- Update the Get Started button -->
+             <a href="javascript:void(0);" class="btn btn-main btn-round-full" id="getStartedBtn">Get started</a>
+						
+
 					</div>
 				</div>
 			</div>
@@ -597,7 +600,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-  // Function to handle "Get started" button click
+// Function to handle "Get started" button click
 function handleGetStartedButtonClick(event) {
     // Prevent the default behavior of the anchor element
     event.preventDefault();
@@ -630,8 +633,8 @@ function handleGetStartedButtonClick(event) {
     // Attach click event listener to the "Get started" button
     getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
 
-    // Attach click event listener to the "Get started" button
-    getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
+// Attach click event listener to the "Get started" button
+getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
 
     // Initial content update based on the current URL
     const currentPage = window.location.pathname.split('/').pop().split('.').shift();
