@@ -591,16 +591,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const servicesSection = document.getElementById('services');
 
         if (servicesSection) {
-            contentContainer.innerHTML = servicesSection.innerHTML;
             servicesSection.scrollIntoView({ behavior: 'smooth' });
         } else {
             console.error('Element with ID "services" not found.');
         }
     }
 
-    // Function to handle "Get started" button mousedown
-    function handleGetStartedButtonMousedown(event) {
-        // Prevent the default behavior of the anchor element
+    // Function to handle "Get started" button click
+    function handleGetStartedButtonClick(event) {
         event.preventDefault();
 
         // Example: Scroll to the plans section
@@ -625,8 +623,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Attach click event listener to the "Read more" button
     readMoreBtn.addEventListener('click', handleReadMoreButtonClick);
 
-    // Attach mousedown event listener to the "Get started" button
-    getStartedBtn.addEventListener('mousedown', handleGetStartedButtonMousedown);
+    // Attach click event listener to the "Get started" button
+    getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
 
     // Initial content update based on the current URL
     const currentPage = window.location.pathname.split('/').pop().split('.').shift();
