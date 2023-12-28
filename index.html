@@ -587,25 +587,37 @@ document.addEventListener('DOMContentLoaded', function () {
         contactContent.scrollIntoView({ behavior: 'smooth' });
     }
 
-   // Function to handle "Get started" button click
-function handleGetStartedButtonClick(event) {
-    // Prevent the default behavior of the anchor element
-    event.preventDefault();
+  document.addEventListener('DOMContentLoaded', function () {
+    const contentContainer = document.getElementById('content');
 
-    // Example: Load content related to the plans section
-    const plansContent = document.getElementById('plans');
+    // Event delegation for the "Get started" button click
+    document.body.addEventListener('click', function (event) {
+        if (event.target.matches('#getStartedBtn')) {
+            handleGetStartedButtonClick(event);
+        }
+    });
 
-    if (plansContent) {
-        contentContainer.innerHTML = plansContent.innerHTML;
+    // Function to handle "Get started" button click
+    function handleGetStartedButtonClick(event) {
+        // Prevent the default behavior of the anchor element
+        event.preventDefault();
 
-        // Manually update the URL without adding the hash
-        window.history.pushState({}, document.title, window.location.pathname);
+        // Example: Load content related to the plans section
+        const plansContent = document.getElementById('plans');
 
-        plansContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-        console.error('Element with ID "plans" not found.');
+        if (plansContent) {
+            contentContainer.innerHTML = plansContent.innerHTML;
+
+            // Manually update the URL without adding the hash
+            window.history.pushState({}, document.title, window.location.pathname);
+
+            plansContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            console.error('Element with ID "plans" not found.');
+        }
     }
-}
+});
+
 	
 // Function to handle "Get started" button click
 function handleGetStartedButtonClick(event) {
