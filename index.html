@@ -588,6 +588,57 @@ document.addEventListener('DOMContentLoaded', function () {
         contactContent.scrollIntoView({ behavior: 'smooth' });
     }
 
+// Attach click event listener to the "Read more" button
+readMoreBtn.addEventListener('click', handleReadMoreButtonClick);
+
+// Attach click event listener to the "Get started" button
+getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
+
+// Function to handle "Get started" button click
+function handleGetStartedButtonClick(event) {
+    // Prevent the default behavior of the anchor element
+    event.preventDefault();
+
+    // Example: Load content related to the plans section
+    const plansContent = document.getElementById('plans');
+
+    if (plansContent) {
+        contentContainer.innerHTML = plansContent.innerHTML;
+
+        // Manually update the URL without adding the hash
+        window.history.pushState({}, document.title, window.location.pathname);
+
+        // Use the offsetTop of the plansContent for more accurate scrolling
+        const offsetTop = plansContent.offsetTop;
+        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    } else {
+        console.error('Element with ID "plans" not found.');
+    }
+}
+
+// Function to handle "Read more" button click
+function handleReadMoreButtonClick(event) {
+    // Prevent the default behavior of the anchor element
+    event.preventDefault();
+
+    // Example: Load content related to the services section
+    const servicesContent = document.getElementById('services');
+
+    if (servicesContent) {
+        contentContainer.innerHTML = servicesContent.innerHTML;
+
+        // Manually update the URL without adding the hash
+        window.history.pushState({}, document.title, window.location.pathname);
+
+        // Use the offsetTop of the servicesContent for more accurate scrolling
+        const offsetTop = servicesContent.offsetTop;
+        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    } else {
+        console.error('Element with ID "services" not found.');
+    }
+}
+	
+
     // Attach click event listeners to navigation links
     navLinks.forEach(function (link) {
         link.addEventListener('click', handleNavLinkClick);
@@ -595,12 +646,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Attach click event listener to the "Contact us" button
     contactBtn.addEventListener('click', handleContactButtonClick);
-
-    // Attach click event listener to the "Read more" button
-    readMoreBtn.addEventListener('click', handleReadMoreButtonClick);
-
-    // Attach click event listener to the "Get started" button
-    getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
 
     // Initial content update based on the current URL
     const currentPage = window.location.pathname.split('/').pop().split('.').shift();
