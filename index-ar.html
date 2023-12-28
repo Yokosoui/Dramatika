@@ -10,33 +10,6 @@
 <html lang="ar"
 dir="rtl">
 <head>
-
-<script>
-        function setLanguage(languageCode) {
-            document.cookie = `lang=${languageCode}; path=/`;
-            loadLanguageContent(languageCode);
-        }
-
-        function loadLanguageContent(languageCode) {
-            const contentDiv = document.getElementById('language-content');
-            const contentFile = `content-${languageCode}.html`;
-
-            fetch(contentFile)
-                .then(response => response.text())
-                .then(data => {
-                    contentDiv.innerHTML = data;
-                })
-                .catch(error => {
-                    console.error('Error loading content:', error);
-                });
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const cookieLang = document.cookie.replace(/(?:(?:^|.*;\s*)lang\s*=\s*([^;]*).*$)|^.*$/, '$1');
-            const langParam = cookieLang || 'en';
-            loadLanguageContent(langParam);
-        });
-    </script>
 	
 	<script src="https://kit.fontawesome.com/419c98b1a3.js" crossorigin="anonymous"></script>
   <!-- ** Basic Page Needs ** -->
