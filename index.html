@@ -547,6 +547,7 @@ document.querySelectorAll('.language-dropdown li').forEach(item => {
 });
 </script>
 <script>
+	
 document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.nav-link');
     const contentContainer = document.getElementById('content');
@@ -595,6 +596,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const servicesSection = document.getElementById('services');
 
         if (servicesSection) {
+            contentContainer.innerHTML = servicesSection.innerHTML;
             servicesSection.scrollIntoView({ behavior: 'smooth' });
         } else {
             console.error('Element with ID "services" not found.');
@@ -629,6 +631,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Attach click event listener to the "Get started" button
     getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
+
+    // Initial content update based on the current URL
+    const currentPage = window.location.pathname.split('/').pop().split('.').shift();
+    updateContent(currentPage);
 });
 
     </script>
