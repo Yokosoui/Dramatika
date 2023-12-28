@@ -211,9 +211,10 @@ overflow-x: hidden;
 						<h4 class="mb-3 position-relative">We are the solution to your boredom</h4>
 						<p class="mb-5">We are a leading cable service provider committed to delivering top-notch entertainment and communication services to our customers. With years of experience in the industry, we take pride in our exceptional service quality and customer satisfaction.</p>
 
-						<!-- Update the Get Started button -->
-             <a href="javascript:void(0);" class="btn btn-main btn-round-full" id="getStartedBtn">Get started</a>
 						
+				<!-- Update the Get Started button -->
+<a href="javascript:void(0);" class="btn btn-main btn-round-full" id="getStartedBtn">Get started</a>
+
 
 					</div>
 				</div>
@@ -610,12 +611,15 @@ function handleGetStartedButtonClick(event) {
 
     if (plansContent) {
         contentContainer.innerHTML = plansContent.innerHTML;
+
+        // Manually update the URL without adding the hash
+        window.history.pushState({}, document.title, window.location.pathname);
+
         plansContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
         console.error('Element with ID "plans" not found.');
     }
 }
-
 
 
 
@@ -632,9 +636,6 @@ function handleGetStartedButtonClick(event) {
 
     // Attach click event listener to the "Get started" button
     getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
-
-// Attach click event listener to the "Get started" button
-getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
 
     // Initial content update based on the current URL
     const currentPage = window.location.pathname.split('/').pop().split('.').shift();
