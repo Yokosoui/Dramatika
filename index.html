@@ -587,13 +587,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Example: Scroll to the contact section without updating the URL
         contactContent.scrollIntoView({ behavior: 'smooth' });
     }
-
-// Attach click event listener to the "Read more" button
-readMoreBtn.addEventListener('click', handleReadMoreButtonClick);
-
-// Attach click event listener to the "Get started" button
-getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
-
 // Function to handle "Get started" button click
 function handleGetStartedButtonClick(event) {
     // Prevent the default behavior of the anchor element
@@ -637,7 +630,22 @@ function handleReadMoreButtonClick(event) {
         console.error('Element with ID "services" not found.');
     }
 }
-	
+
+// Attach click event listener to the "Get started" button
+const getStartedBtn = document.getElementById('getStartedBtn');
+if (getStartedBtn) {
+    getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
+} else {
+    console.error('Element with ID "getStartedBtn" not found.');
+}
+
+// Attach click event listener to the "Read more" button
+const readMoreBtn = document.getElementById('readMoreBtn');
+if (readMoreBtn) {
+    readMoreBtn.addEventListener('click', handleReadMoreButtonClick);
+} else {
+    console.error('Element with ID "readMoreBtn" not found.');
+}
 
     // Attach click event listeners to navigation links
     navLinks.forEach(function (link) {
