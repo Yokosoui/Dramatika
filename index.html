@@ -612,14 +612,13 @@ function handleGetStartedButtonClick(event) {
     }
 }
 
-// Attach click event listener to the "Get started" button
-getStartedBtn.addEventListener('click', function (event) {
-    handleGetStartedButtonClick(event);
-
-    // Stop the propagation of the click event to prevent default behavior
-    event.stopPropagation();
+// Attach click event listener to the container of the "Get started" button
+document.querySelector('.my-2.my-md-0.ml-lg-4.text-center').addEventListener('click', function (event) {
+    // Check if the click originated from the "Get started" button
+    if (event.target.id === 'getStartedBtn') {
+        handleGetStartedButtonClick(event);
+    }
 });
-
         // Attach click event listeners to navigation links
         navLinks.forEach(function (link) {
             link.addEventListener('click', function (event) {
