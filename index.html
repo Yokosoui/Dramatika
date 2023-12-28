@@ -574,7 +574,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to handle "Contact us" button click
     function handleContactButtonClick(event) {
         event.preventDefault();
-        event.stopPropagation();
 
         // Example: Load content related to the contact section
         const contactContent = document.getElementById('contact');
@@ -587,7 +586,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to handle "Read more" button click
     function handleReadMoreButtonClick(event) {
         event.preventDefault();
-        event.stopPropagation();
 
         // Example: Scroll to the services section directly
         const servicesSection = document.getElementById('services');
@@ -600,10 +598,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Function to handle "Get started" button click
-    function handleGetStartedButtonClick(event) {
+    // Function to handle "Get started" button mousedown
+    function handleGetStartedButtonMousedown(event) {
+        // Prevent the default behavior of the anchor element
         event.preventDefault();
-        event.stopPropagation();
 
         // Example: Scroll to the plans section
         const plansSection = document.getElementById('plans');
@@ -627,8 +625,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Attach click event listener to the "Read more" button
     readMoreBtn.addEventListener('click', handleReadMoreButtonClick);
 
-    // Attach click event listener to the "Get started" button
-    getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
+    // Attach mousedown event listener to the "Get started" button
+    getStartedBtn.addEventListener('mousedown', handleGetStartedButtonMousedown);
 
     // Initial content update based on the current URL
     const currentPage = window.location.pathname.split('/').pop().split('.').shift();
