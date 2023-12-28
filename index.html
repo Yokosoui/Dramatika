@@ -598,16 +598,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
   // Function to handle "Get started" button click
-    function handleContactButtonClick(event) {
-        event.preventDefault();
+function handleGetStartedButtonClick(event) {
+    // Prevent the default behavior of the anchor element
+    event.preventDefault();
 
-        // Example: Load content related to the contact section
-        const contactContent = document.getElementById('plans');
-        contentContainer.innerHTML = contactContent.innerHTML;
+    // Example: Load content related to the plans section
+    const plansContent = document.getElementById('plans');
 
-        // Example: Scroll to the contact section
-        contactContent.scrollIntoView({ behavior: 'smooth' });
+    if (plansContent) {
+        contentContainer.innerHTML = plansContent.innerHTML;
+        plansContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+        console.error('Element with ID "plans" not found.');
     }
+}
+
 
 
 
@@ -621,6 +626,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Attach click event listener to the "Read more" button
     readMoreBtn.addEventListener('click', handleReadMoreButtonClick);
+
+    // Attach click event listener to the "Get started" button
+    getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
 
     // Attach click event listener to the "Get started" button
     getStartedBtn.addEventListener('click', handleGetStartedButtonClick);
