@@ -9,6 +9,22 @@
 
 <html lang="en">
 <head>
+
+	<script>
+		
+		$(function(){
+    // This code is wrapped inside a jQuery function that executes when the DOM is ready.
+
+    $('a[href="#"]').click(function(event){
+        // This selects all <a> (anchor) elements with an href attribute equal to "#" and attaches a click event handler.
+
+        event.preventDefault();
+        // This line prevents the default behavior of the click event, which would typically navigate to the anchor with href="#".
+
+    });
+});
+		
+</script>
 	<script src="https://kit.fontawesome.com/419c98b1a3.js" crossorigin="anonymous"></script>
   <!-- ** Basic Page Needs ** -->
   <meta charset="utf-8">
