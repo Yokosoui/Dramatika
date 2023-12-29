@@ -113,16 +113,17 @@ overflow-x: hidden;
                   <a class="nav-link" href="index.html">Home</a>
                 </li>
                 
-                <li class="nav-item @@service"><a class="nav-link" href="#services">Services</a></li>
-				<li class="nav-item @@about"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item @@service"><a class="nav-link scroll-button" href="#services" data-target="#services">Services</a></li>
+		      
+				<li class="nav-item @@about"><a class="nav-link scroll-button" href="#about" data-target="#about">About</a></li>
 			</li>
-                <li class="nav-item @@project"><a class="nav-link" href="#why-us">Choosing us</a></li>
+                <li class="nav-item @@project"><a class="nav-link scroll-button" href="#why-us" data-target="#why-us">Choosing us</a></li>
                
-                <li class="nav-item @@contact"><a class="nav-link" href="#plans">Plans</a></li>
+                <li class="nav-item @@contact"><a class="nav-link scroll-button" href="#plans" data-target="#plans">Plans</a></li>
               </ul>
       
               <div class="my-2 my-md-0 ml-lg-4 text-center">
-                <a href="#contact" class="btn btn-solid-border btn-round-full" id="contactBtn">Contact us</a>
+               <a href="#contact" data-target="#contact" class="btn btn-solid-border btn-round-full scroll-button" id="contactBtn">Contact us</a>
               </div>
             </div>
           </nav>
@@ -141,7 +142,7 @@ overflow-x: hidden;
 				<div class="block">
 					<span class="d-block mb-3 text-white text-capitalize">Dramatika - Home of Entertainment</span>
 					<h1 class="animated fadeInUp mb-5">Endless Entertainment from Every Corner of the World</h1>
-					<a href="#services"  class="btn btn-main animated fadeInUp btn-round-full"  id="readMoreBtn" aria-label="Read more">Read more<i class="btn-icon fa fa-angle-right ml-2"></i></a>
+					<a href="#services" data-target="#services" class="btn btn-main animated fadeInUp btn-round-full scroll-button"  id="readMoreBtn" aria-label="Read more">Read more<i class="btn-icon fa fa-angle-right ml-2"></i></a>
 				</div>
 			</div>
 		</div>
@@ -214,7 +215,7 @@ overflow-x: hidden;
 
 						
 				<!-- Update the Get Started button -->
-<a href="#plans" class="btn btn-main btn-round-full external-link">Get started</a>
+<a href="#plans" data-target="#plans" class="btn btn-main btn-round-full scroll-button">Get started</a>
 
 
 					</div>
@@ -397,7 +398,7 @@ overflow-x: hidden;
 					<h2 class="mt-2 mb-4 mb-lg-0">Intrested? Try our service for 24 hours completely free of charge!</h2>
 				</div>
 				<div class="col-lg-4">
-					<a href="#contact" class="btn btn-main btn-round-full float-lg-right ">Contact Us</a>
+					<a href="#contact" data-target="#contact" class="btn btn-main btn-round-full float-lg-right scroll-button">Contact Us</a>
 				</div>
 			</div>
 		</div>
@@ -482,100 +483,74 @@ Essential Scripts
 	});
 	</script>
 
-<script>
-	document.addEventListener("DOMContentLoaded", function() {
-	  // Attach click event listeners to navigation links
-	  const navLinks = document.querySelectorAll("nav a");
-	  navLinks.forEach(link => {
-		link.addEventListener("click", function(event) {
-		  
-		  const target = document.querySelector(link.getAttribute("href"));
-		  if (target) {
-			const offsetTop = target.getBoundingClientRect().top + window.scrollY;
-			window.scrollTo({ top: offsetTop, behavior: "smooth" });
-			
-			// Store the scroll position in sessionStorage
-			sessionStorage.setItem("scrollPosition", offsetTop.toString());
-		  }
-		});
-	  });
-	
-	  // Restore scroll position if available
-	  const scrollPosition = sessionStorage.getItem("scrollPosition");
-	  if (scrollPosition !== null) {
-		window.scrollTo(0, parseInt(scrollPosition));
-	  }
-	});
-	</script>
+
 	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			const languageSelector = document.getElementById('languageSelector');
-			const currentLanguage = document.getElementById('currentLanguage');
-			const languageDropdown = document.getElementById('languageDropdown');
-		
-			// Toggle the language dropdown on click
-			languageSelector.addEventListener('click', function () {
-				if (languageDropdown.style.display === 'block') {
-					languageDropdown.style.display = 'none';
-					currentLanguage.querySelector('i').classList.remove('fa-chevron-up');
-					currentLanguage.querySelector('i').classList.add('fa-chevron-down');
-				} else {
-					languageDropdown.style.display = 'block';
-					currentLanguage.querySelector('i').classList.remove('fa-chevron-down');
-					currentLanguage.querySelector('i').classList.add('fa-chevron-up');
-				}
-			});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollLinks = document.querySelectorAll(".scroll-button");
+
+  scrollLinks.forEach(link => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      const targetId = link.getAttribute("data-target").substring(1);
+      const target = document.getElementById(targetId);
+
+      if (target) {
+        const offsetTop = target.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: offsetTop, behavior: "smooth" });
+        sessionStorage.setItem("scrollPosition", offsetTop.toString());
+      }
+    });
+  });
+
+  // Restore scroll position if available
+  const scrollPosition = sessionStorage.getItem("scrollPosition");
+  if (scrollPosition !== null) {
+    window.scrollTo(0, parseInt(scrollPosition));
+  }
+});
+
+</script>  
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const languageSelector = document.getElementById('languageSelector');
+		const currentLanguage = document.getElementById('currentLanguage');
+		const languageDropdown = document.getElementById('languageDropdown');
+	
+		// Toggle the language dropdown on click
+		languageSelector.addEventListener('click', function () {
+			if (languageDropdown.style.display === 'block') {
+				languageDropdown.style.display = 'none';
+				currentLanguage.querySelector('i').classList.remove('fa-chevron-up');
+				currentLanguage.querySelector('i').classList.add('fa-chevron-down');
+			} else {
+				languageDropdown.style.display = 'block';
+				currentLanguage.querySelector('i').classList.remove('fa-chevron-down');
+				currentLanguage.querySelector('i').classList.add('fa-chevron-up');
+			}
+		});
 
 // Change the selected language and close the dropdown
 function changeLanguage(languageCode) {
-	currentLanguage.innerHTML = `
-		<img src="flags/${languageCode}.png" alt="${languageCode.toUpperCase()} Flag">
-		<i class="fas fa-chevron-down"></i>
-	`;
-	languageDropdown.style.display = 'none';
-	currentLanguage.querySelector('i').classList.remove('fa-chevron-up');
-	currentLanguage.querySelector('i').classList.add('fa-chevron-down');
-	// You can implement language change logic here
+currentLanguage.innerHTML = `
+	<img src="flags/${languageCode}.png" alt="${languageCode.toUpperCase()} Flag">
+	<i class="fas fa-chevron-down"></i>
+`;
+languageDropdown.style.display = 'none';
+currentLanguage.querySelector('i').classList.remove('fa-chevron-up');
+currentLanguage.querySelector('i').classList.add('fa-chevron-down');
+// You can implement language change logic here
 }
 
 // Attach the changeLanguage function to the list items
 document.querySelectorAll('.language-dropdown li').forEach(item => {
-	const languageCode = item.onclick.toString().split("'")[1];
-	item.addEventListener('click', function () {
-		changeLanguage(languageCode);
-	});
+const languageCode = item.onclick.toString().split("'")[1];
+item.addEventListener('click', function () {
+	changeLanguage(languageCode);
 });
 });
-</script>
-
-<script>
-	
-  document.addEventListener("DOMContentLoaded", function () {
-    // Attach click event listeners to all anchor tags except language switcher and external links
-    const anchorTags = document.querySelectorAll("a:not(.language-switch):not(.external-link)");
-    anchorTags.forEach(link => {
-      link.addEventListener("click", function (event) {
-        // Check if the link has a specific class that indicates it should retain default behavior
-        if (!link.classList.contains("retain-default-behavior")) {
-          event.preventDefault(); // Prevents the default behavior of the anchor tag
-          const target = document.querySelector(link.getAttribute("href"));
-          if (target) {
-            const offsetTop = target.getBoundingClientRect().top + window.scrollY;
-            window.scrollTo({ top: offsetTop, behavior: "smooth" });
-            // Store the scroll position in sessionStorage
-            sessionStorage.setItem("scrollPosition", offsetTop.toString());
-          }
-        }
-      });
-    });
-
-    // Restore scroll position if available
-    const scrollPosition = sessionStorage.getItem("scrollPosition");
-    if (scrollPosition !== null) {
-      window.scrollTo(0, parseInt(scrollPosition));
-    }
-  });
-	
+});
 </script>
 
 	
