@@ -549,37 +549,6 @@ document.querySelectorAll('.language-dropdown li').forEach(item => {
 </script>
 	
 
-	 <script>
-		 
-    document.addEventListener('DOMContentLoaded', function () {
-      // Get all anchor tags on the page
-      const anchorTags = document.querySelectorAll('a');
-
-      // Attach the event listener to each anchor tag
-      anchorTags.forEach(function (anchor) {
-        anchor.addEventListener('click', removeHashWithTimeout);
-      });
-
-      function removeHashWithTimeout(event) {
-        event.preventDefault(); // Prevent the default behavior of the anchor tag
-
-        // Get the hash value from the href attribute
-        const hash = event.currentTarget.getAttribute('href');
-
-        // Wait for 0.5 milliseconds before executing the code
-        setTimeout(() => {
-          // Update the URL without causing a page reload
-          history.replaceState(null, null, hash);
-
-          // You can add your additional code here if needed
-
-        }, 0.5);
-
-        // You can also add additional code here that will run immediately
-      }
-    });
-		
-  </script>
 	
 </body>
 
