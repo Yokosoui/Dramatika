@@ -587,7 +587,7 @@ ul.dropdown-menu li {
 .slider {
   background: url("https://images2.imgbox.com/ba/62/rGsByO3D_o.jpg") no-repeat;
   background-size: cover;
-  background-position: 10% 0%;
+  
   padding: 200px 0;
   position: relative;
 }
