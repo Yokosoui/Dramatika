@@ -508,7 +508,7 @@ margin-right:50px !important;
 			</li></a>
 			<li>
 				<a href="tel:+46734943902" class="external-link"><i class="ti-mobile mr-3"></i> الهاتف  :  ٤٦۷۳٤۹٤۳۹۰۲ +
-			<a href="https://wa.me/46734943902" class="external-link"><span><span class="whatsapp"><i class="fa-brands fa-square-whatsapp fa-xl" style="color: #21c05b;"></i></span> واتساب </span></a>
+			<li><a href="https://wa.me/46734943902" class="external-link"><span><span class="whatsapp"><i class="fa-brands fa-square-whatsapp fa-xl" style="color: #21c05b;"></i></span> واتساب </span></li></a>
 		</ul>
 	</div>
 </div>
@@ -706,8 +706,8 @@ document.querySelectorAll('.language-dropdown li').forEach(item => {
 <script>
 	
   document.addEventListener("DOMContentLoaded", function () {
-    // Attach click event listeners to all anchor tags except language switcher links
-    const anchorTags = document.querySelectorAll("a:not(.language-switch)"); 
+    // Attach click event listeners to all anchor tags except language switcher and external links
+    const anchorTags = document.querySelectorAll("a:not(.language-switch):not(.external-link)");
     anchorTags.forEach(link => {
       link.addEventListener("click", function (event) {
         event.preventDefault(); // Prevents the default behavior of the anchor tag
