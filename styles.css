@@ -628,7 +628,7 @@ width:450px;
         z-index:2;
         padding-top:120px;
     height:300px;
-    width:570px;
+    width:550px;
         }
       }
 
@@ -655,7 +655,7 @@ width:450px;
 
 }
 @media (max-width: 768px) {
-  .slider, heroo {
+  .slider {
     padding: 150px 0;
   }
 }
