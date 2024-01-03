@@ -592,7 +592,7 @@ ul.dropdown-menu li {
   position: relative;
 
 }
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .slider {
   background: url("https://images2.imgbox.com/ba/62/rGsByO3D_o.jpg") no-repeat;
   background-size: cover;
