@@ -584,6 +584,71 @@ ul.dropdown-menu li {
   background-size: cover;
 }
 
+.heroo {
+display:flex;
+justify-content:flex-end;
+align-items:center;
+z-index:2;
+padding-left:100px;
+}
+
+@media (max-width: 1300px) {
+  .heroo {
+    z-index:2;
+    padding-top:100px;
+height:300px;
+width:470px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .heroo {
+      position: relative;
+      right:0vh;
+      left:-2vh;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      z-index:2;
+      padding-top:120px;
+  height:300px;
+  width:650px;
+      }
+    }
+  
+
+    @media (max-width: 768px) {
+      .heroo {
+        position: relative;
+        right:0vh;
+        left:-11vh;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        z-index:2;
+        padding-top:120px;
+    height:300px;
+    width:610px;
+        }
+      }
+    
+      @media (max-width: 580px) {
+        .heroo {
+          position: relative;
+          right:0vh;
+          left:-8vh;
+          height:40vh;
+          width:550px;
+          display:flex;
+          justify-content: center;
+          z-index:2;
+          padding-top:120px;
+          padding-left:100px;
+          padding-right:100px;
+          }
+        }
+      
+
 .slider {
   background: url("https://images2.imgbox.com/ba/62/rGsByO3D_o.jpg") no-repeat;
   background-size: cover;
