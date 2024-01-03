@@ -597,7 +597,7 @@ padding-left:100px;
     z-index:2;
     padding-top:100px;
 height:300px;
-width:470px;
+width:450px;
     }
   }
 
@@ -621,7 +621,7 @@ width:470px;
       .heroo {
         position: relative;
         right:0vh;
-        left:-11vh;
+        left:-12vh;
         display:flex;
         justify-content: center;
         align-items: center;
@@ -636,14 +636,14 @@ width:470px;
         .heroo {
           position: relative;
           right:0vh;
-          left:-8vh;
+          left:-1.5vh;
           height:40vh;
-          width:550px;
+          width:600px;
           display:flex;
           justify-content: center;
           z-index:2;
           padding-top:120px;
-          padding-left:100px;
+          padding-left:30px;
           padding-right:100px;
           }
         }
