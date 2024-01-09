@@ -621,7 +621,7 @@ width:450px;
       .heroo {
         position: relative;
         right:0vh;
-        left:-12vh;
+        left:0vh;
         display:flex;
         justify-content: center;
         align-items: center;
@@ -634,7 +634,7 @@ width:450px;
 
 
 .slider {
-  background: url("https://images2.imgbox.com/ba/62/rGsByO3D_o.jpg") no-repeat;
+  background: url("ttps://images2.imgbox.com/ba/62/rGsByO3D_o.jpg") no-repeat;
   background-size: cover;
   background-position: 10% 0%;
   padding: 300px 0;
