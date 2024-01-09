@@ -580,7 +580,7 @@ ul.dropdown-menu li {
 }
 
 .bg-2 {
-  background: url("ttps://media.istockphoto.com/id/1412871535/photo/friends-watching-movies-together-at-home.jpg?s=612x612&w=0&k=20&c=ELSN7ZtKYDs7DeW9EG_Dh7i-aIBOR_9ktlvRpFaZnEM=");
+  background: url("https://media.istockphoto.com/id/1412871535/photo/friends-watching-movies-together-at-home.jpg?s=612x612&w=0&k=20&c=ELSN7ZtKYDs7DeW9EG_Dh7i-aIBOR_9ktlvRpFaZnEM=");
   background-size: cover;
 }
 
@@ -621,14 +621,14 @@ width:450px;
       .heroo {
         position: relative;
         right:0vh;
-        left:-12vh;
+        left:-11.5vh;
         display:flex;
         justify-content: center;
         align-items: center;
         z-index:2;
         padding-top:120px;
     height:300px;
-    width:510px;
+    width:480px;
         }
       }
 
